@@ -7,7 +7,6 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 	<script type='text/javascript'>//<![CDATA[
 	var VanillaRunOnDomReady = function() {
 	var Base64 = {
@@ -21,12 +20,10 @@
             chr1 = input.charCodeAt(i++);
             chr2 = input.charCodeAt(i++);
             chr3 = input.charCodeAt(i++);
-
             enc1 = chr1 >> 2;
             enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);
             enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);
             enc4 = chr3 & 63;
-
             if (isNaN(chr2)) {
                 enc3 = enc4 = 64;
             } else if (isNaN(chr3)) {
@@ -42,21 +39,16 @@
         var chr1, chr2, chr3;
         var enc1, enc2, enc3, enc4;
         var i = 0;
-
         input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");
-
         while (i < input.length) {
             enc1 = this._keyStr.indexOf(input.charAt(i++));
             enc2 = this._keyStr.indexOf(input.charAt(i++));
             enc3 = this._keyStr.indexOf(input.charAt(i++));
             enc4 = this._keyStr.indexOf(input.charAt(i++));
-
             chr1 = (enc1 << 2) | (enc2 >> 4);
             chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
             chr3 = ((enc3 & 3) << 6) | enc4;
-
             output = output + String.fromCharCode(chr1);
-
             if (enc3 != 64) {
                 output = output + String.fromCharCode(chr2);
             }
@@ -71,11 +63,8 @@
     _utf8_encode: function(string) {
         string = string.replace(/\r\n/g, "\n");
         var utftext = "";
-
         for (var n = 0; n < string.length; n++) {
-
             var c = string.charCodeAt(n);
-
             if (c < 128) {
                 utftext += String.fromCharCode(c);
             }
@@ -96,11 +85,8 @@
         var string = "";
         var i = 0;
         var c = c1 = c2 = 0;
-
         while (i < utftext.length) {
-
             c = utftext.charCodeAt(i);
-
             if (c < 128) {
                 string += String.fromCharCode(c);
                 i++;
@@ -136,7 +122,6 @@
 }
 
 var alreadyrunflag = 0;
-
 if (document.addEventListener)
     document.addEventListener("DOMContentLoaded", function(){
         alreadyrunflag=1; 
@@ -152,15 +137,22 @@ else if (document.all && !window.opera) {
         }
     }
 }
-
 window.onload = function(){
   setTimeout("if (!alreadyrunflag){VanillaRunOnDomReady}", 0);
 }//]]> 
+</script>
+<!--Google analytics-->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-43780055-1', 'auto');
+  ga('send', 'pageview');
 
 </script>
-
 </head>
-
 <body>
 	<div class="container">
 		<h2>Base64 Encode and Decode</h2>
@@ -171,6 +163,5 @@ window.onload = function(){
 		<p id="output"></p>
 	</div>
 </body>
-
 </html>
 
