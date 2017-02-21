@@ -112,11 +112,12 @@
       input = document.getElementById('input');
 
   encode.onclick = function() {
-      output.innerHTML = Base64.encode(input.value);
+      output.innerHTML = Base64.encode(input.value).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
   }
   
   decode.onclick = function() {
       var $str = output.innerHTML;
+      output.innerHTML = Base64.decode($str).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
   }    
 }
 
