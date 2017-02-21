@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Base64 encode and decode by Shuvankar Sarkar</title>
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <title>Base64 encode and decode by Shuvankar Sarkar</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script type='text/javascript'>//<![CDATA[
-	var VanillaRunOnDomReady = function() {
-	var Base64 = {
+  <script type='text/javascript'>//<![CDATA[
+  var VanillaRunOnDomReady = function() {
+  var Base64 = {
     _keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
     encode: function(input) {
         var output = "";
@@ -32,7 +32,7 @@
             output = output + this._keyStr.charAt(enc1) + this._keyStr.charAt(enc2) + this._keyStr.charAt(enc3) +this._keyStr.charAt(enc4);
         }
         return output;
-		},
+    },
 
     decode: function(input) {
         var output = "";
@@ -104,21 +104,21 @@
             }
         }
         return string;
-			}
-	}
-	var encode = document.getElementById('encode'),
-			decode = document.getElementById('decode'),
-			output = document.getElementById('output'),
-			input = document.getElementById('input');
+      }
+  }
+  var encode = document.getElementById('encode'),
+      decode = document.getElementById('decode'),
+      output = document.getElementById('output'),
+      input = document.getElementById('input');
 
-	encode.onclick = function() {
-			output.innerHTML = Base64.encode(input.value);
-	}
-			
-	decode.onclick = function() {
-			var $str = output.innerHTML;
-			output.innerHTML = Base64.decode($str);
-	}    
+  encode.onclick = function() {
+      output.innerHTML = Base64.encode(input.value);
+  }
+  
+  decode.onclick = function() {
+      var $str = output.innerHTML;
+      output.innerHTML = Base64.decode($str);
+  }    
 }
 
 var alreadyrunflag = 0;
@@ -154,14 +154,14 @@ window.onload = function(){
 </script>
 </head>
 <body>
-	<div class="container">
-		<h2>Base64 Encode and Decode</h2>
-		Input<br/>
-		<textarea rows="4" cols="50" id="input" class="form-control"></textarea><br/>
-		<button id="encode" type="button" class="btn btn-success">Encode</button>
-		<button id="decode" type="button" class="btn btn-danger">Decode</button><br/><br/>
-		<p id="output"></p>
-	</div>
+  <div class="container">
+    <h2>Base64 Encode and Decode</h2>
+    Input<br/>
+    <textarea rows="4" cols="50" id="input" class="form-control"></textarea><br/>
+    <button id="encode" type="button" class="btn btn-success">Encode</button>
+    <button id="decode" type="button" class="btn btn-danger">Decode</button><br/><br/>
+    <p id="output"></p>
+  </div>
 </body>
 </html>
 
